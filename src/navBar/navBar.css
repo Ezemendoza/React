@@ -1,0 +1,23 @@
+.listaNavbar{
+    width: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    }
+    .listNavbar{
+      width: 25%;
+      list-style: none;
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+    
+    }
+    .App-logo {
+      width: 25%;
+      pointer-events: none;
+    }
+    .entrar{
+    
+    margin-right: 2%;
+    
+    }
