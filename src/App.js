@@ -15,7 +15,6 @@ function App() {
     <ItemListContainer titulo="Ajuar de 3 Piezas" precio="$2.500"/>
     <ItemListContainer titulo="Ajuar de 12 Piezas" precio="$14.500"/>
 
-   
       </header>
     </div>
   );
