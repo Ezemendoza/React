@@ -1,23 +1,27 @@
-import './itemListContainer.css';
-import logo from "../logo.svg";
+import { pedirDatos } from "../datos/pedirDatos"
+import { useEffect, useState } from 'react';
+import ItemList from "../ItemList/ItemList"
 
-import ItemCount from './itemCount';
 
 
-const ItemListContainer = (props) => {
- 
+const ItemListContainer = () => {
+    const [items, setItems] = useState([])
+    useEffect(() => {
+        pedirDatos()
+            .then((resp) => {
+                setItems( resp )
+            })
+            .catch((error) => {
+                console.log('ERROR', error)
+            })
+          
+    }, [])
+    return (
+        
+        <ItemList items={items}/>
+       
+    )
+}
 
-    return <div className="itemListContainer">
-
-<div itemListContainer>
-<h4>{props.titulo}</h4>
-<img src={logo}/>
-<h2>{props.precio}</h2>
-
-<ItemCount/>
-
-</div>
-</div>
- }
 
 export default ItemListContainer

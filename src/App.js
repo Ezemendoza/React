@@ -1,7 +1,7 @@
 
 import './App.css';
 import Menu from './navBar/navBar';
-import ItemListContainer from './itemListContainer/itemListContainer';
+import ItemListContainer from './ItemListContainer/ItemListContainer';
 
 function App() {
   return ( 
@@ -10,11 +10,10 @@ function App() {
        
    <header className="App-header">
 
-    <ItemListContainer titulo="Ajuar de 6 Piezas" precio="$5.000"/>
-    <ItemListContainer titulo="Ajuar de 8 Piezas" precio="$7.500"/>
-    <ItemListContainer titulo="Ajuar de 3 Piezas" precio="$2.500"/>
-    <ItemListContainer titulo="Ajuar de 12 Piezas" precio="$14.500"/>
+    <ItemListContainer/>
 
+
+   
       </header>
     </div>
   );
