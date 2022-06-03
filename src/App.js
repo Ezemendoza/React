@@ -12,8 +12,6 @@ function App() {
 
     <ItemListContainer/>
 
-
-   
       </header>
     </div>
   );
