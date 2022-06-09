@@ -36,6 +36,7 @@ const ItemListContainer = () => {
         <h2 className="titulo-principal">Catalogo</h2>
         <Link to={"/categorias/lupa"}><button className="btn btn-primary">Lupa</button></Link>
         <Link to={"/categorias/tiraled"}><button className="btn btn-primary">Tira Led</button></Link>
+    
         <hr/>
         {loading
         ?

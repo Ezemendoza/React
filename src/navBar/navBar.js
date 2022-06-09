@@ -6,11 +6,11 @@ import { Link } from 'react-router-dom';
 const Menu = () => {
     return <nav className="listaNavbar">
         
- <a href="https://reactjs.org"><img src={logo} className="App-logo" alt="logo" /></a>
+        <Link to={"/"} className="mt-3"><img src={logo} className="App-logo" alt="logo" /></Link>
     <ul className=" ml-5 listNavbar">
     <Link to={"/"} className="mt-3">Inicio</Link>
-<li className='mt-3'>Contacto</li>
-<li className='mt-3'>Ubicacion</li>
+    <Link to={"/contacto"} className="mt-3">Contacto</Link>
+    <Link to={"/ubicacion"} className="mt-3">Ubicacion</Link>
 <li className='mr-4'><CartWidget /></li>
 </ul>
 </nav>

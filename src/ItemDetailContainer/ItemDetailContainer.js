@@ -3,7 +3,7 @@ import { Spinner } from "react-bootstrap"
 import { pedirDatos } from "../datos/pedirDatos"
 import { useParams } from "react-router-dom"
 import ItemDetail from "../Item/Item"
-
+import  "./ItemDetail.css"
 
 export const ItemDetailContainer = () => {
 
@@ -29,7 +29,7 @@ export const ItemDetailContainer = () => {
     }, [])
 
     return (
-        <section className="container my-5">
+        <section className="container my-5 row">
             
             {
                 loading
