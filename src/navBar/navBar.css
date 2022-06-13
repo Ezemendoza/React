@@ -1,8 +1,9 @@
-.listaNavbar{
+.listaNavbar{ background-color:#557996;
     width: 100%;
       display: flex;
       flex-direction: row;
       justify-content: space-between;
+     
     }
     .listNavbar{
       width: 25%;
@@ -10,14 +11,11 @@
       display: flex;
       flex-direction: row;
       justify-content: space-between;
-    
+
     }
     .App-logo {
       width: 25%;
       pointer-events: none;
     }
-    .entrar{
-    
-    margin-right: 2%;
-    
-    }
+.palabra__lista{text-decoration: none;
+color: white;}
