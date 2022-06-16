@@ -1,8 +1,8 @@
 
+
 const ItemCounter = ({item, counter, setCounter, agregar}) => {
 
 
-      
     const incrementar = ()=>{
         if(counter<item)setCounter(counter=counter+1)
     }

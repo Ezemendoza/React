@@ -1,13 +1,17 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import  "./GaleriaItem.css"
 import DetalleGaleriaItem from "./DetalleGaleria/DetalleGaleria";
 import { Link } from "react-router-dom";
-import ItemCounter from "./ItemCounter.js/ItemCounter";
-import camion from '../../img/camion.png'
-import tarjeta from '../../img/tarjeta.png'
+import ItemCounter from "../ItemCounter/ItemCounter";
+import camion from '../img/camion.png'
+import tarjeta from '../img/tarjeta.png'
+import { CartContext } from "../CartContext/CartContext";
 
 const GaleriaItem = ({item}) => {
   const [contador, setCantidad]=useState(1)
+  
+  const {addCart} = useContext(CartContext)
+
     useEffect(()=>{
         const fotoLista = document.querySelectorAll(".thumbnails-list li");
 
@@ -23,10 +27,13 @@ const GaleriaItem = ({item}) => {
     })
     const cuota = Math.round(item.precio/6)
     const stock= item.stock-contador
+
     const agregar= () => {
-      const itemToCart={ ...item,
+      const itemCart={ ...item,
         cantidad:contador,}  
-        console.log(itemToCart)
+      addCart(itemCart, contador)
+      
+
 }
     
     return (

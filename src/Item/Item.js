@@ -1,5 +1,5 @@
-import { useEffect, useState } from "react"
-import GaleriaItem from "./GaleriaItem/GaleriaItem"
+
+import GaleriaItem from "../GaleriaItem/GaleriaItem"
 import  "./Item.css"
 
 

@@ -2,7 +2,7 @@ import logo from '../logo.svg';
 import './navBar.css';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
-import { UbicacionNavbar } from './UbicacionNavbar';
+
 
 const Menu = () => {
     return <nav className="listaNavbar">
@@ -13,7 +13,7 @@ const Menu = () => {
     <Link to={"/contacto"} className="mt-3 palabra__lista">Contacto</Link>
     <Link to={"/ubicacion"} className="mt-3 palabra__lista">Ubicacion</Link>
 
-<li className='mr-4'><CartWidget /></li>
+    <Link to={"/cart"} className="mt-3 "><li className='mr-4'><CartWidget/></li></Link>
 </ul>
 </nav>
  }

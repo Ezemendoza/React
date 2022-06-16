@@ -31,6 +31,7 @@ const ItemListContainer = () => {
             })
           
     }, [categoriaId])
+
     return (
         <div className="fondo">
         <h2 className="titulo-principal">Catalogo</h2>
