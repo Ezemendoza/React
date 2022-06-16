@@ -1,4 +1,5 @@
 import { createContext, useState } from "react";
+import Cart from "../Cart/cart";
 
 
 export const CartContext = createContext()
@@ -10,7 +11,7 @@ export const CartProvider =({children})=>{
 
 
 const addCart = (item)=>{
-    console.log(cart)
+
     const igual = retorno()
  const ok= sumar(item)
 
@@ -18,34 +19,33 @@ const addCart = (item)=>{
  
      if(igual !==true){setCart([ ...cart, item])}
      else{ cart.map((el)=>{if(el.cantidad>item.stock){el.cantidad=item.stock } else if(el.id===ok.id){ el.cantidad= el.cantidad+item.cantidad}})}
+  
+}
+function retorno() {
+    return cart.some((el)=>el.id==item.id)
+}
 }
 
-const totalPrecioUnidad =()=>{
+const totalPrecio =()=>{
     return cart.reduce((acc, prod)=>acc+=(prod.cantidad*prod.precio),0)
 }
 
-const emptyCart = () => {
+const carritoVacio= () => {
     setCart( [] )
   }
 
-  const removeItem = (id) => {
+const removeItem = (id) => {
       setCart( cart.filter((prod) => prod.id !== id) )
   }
 
 
-
-function retorno() {
-    return cart.some((el)=>el.id==item.id)
-}
-
 function sumar(item){
     return cart.find((el)=>el.id==item.id)
 }
-}
 
 
 
-    return(<CartContext.Provider value={{ cart ,addCart, totalPrecioUnidad, emptyCart, removeItem}}>
+    return(<CartContext.Provider value={{ cart ,addCart, totalPrecio, carritoVacio, removeItem}}>
                  {children}
     </CartContext.Provider>)
 }
