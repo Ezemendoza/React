@@ -2,9 +2,13 @@ import logo from '../logo.svg';
 import './navBar.css';
 import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
+import { useContext } from 'react';
+import { CartContext } from '../CartContext/CartContext';
 
 
 const Menu = () => {
+    const{cart, totalPrecio, carritoVacio, removeItem} = useContext(CartContext)
+    console.log(cart.length)
     return <nav className="listaNavbar">
         
         <Link to={"/"} className="mt-3 "><img src={logo} className="App-logo" alt="logo" /></Link>
@@ -13,7 +17,8 @@ const Menu = () => {
     <Link to={"/contacto"} className="mt-3 palabra__lista">Contacto</Link>
     <Link to={"/ubicacion"} className="mt-3 palabra__lista">Ubicacion</Link>
 
-    <Link to={"/cart"} className="mt-3 "><li className='mr-4'><CartWidget/></li></Link>
+    <Link to={"/cart"} className="mt-3 contenedor-carrito "><li className='mr-4'> <CartWidget/>   <span className='contador-carrito'>{cart.length}</span></li></Link>
+ 
 </ul>
 </nav>
  }

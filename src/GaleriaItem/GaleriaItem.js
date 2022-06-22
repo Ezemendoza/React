@@ -32,10 +32,8 @@ const GaleriaItem = ({item}) => {
       const itemCart={ ...item,
         cantidad:contador,}  
       addCart(itemCart, contador)
-      
-
 }
-    
+  
     return (
       
         <div className="row">
@@ -71,25 +69,26 @@ const GaleriaItem = ({item}) => {
                               </div>
   <div>
         <div className="product-detail">
-            <h2 className="titulo-producto">{item.nombre}</h2>
-          
-            <h4>$ {item.precio}</h4>
-            <div className="columnas-detail">
-            <div className="item-tarjeta"><img src={tarjeta}/> 6x cuotas sin interes de  ${cuota}</div>
-            <img src={camion}/> Envios a todo Buenos Aires</div>
-            <p className="text-muted">Aproximadamente en 72 horas en tu casa</p>
-            <p>Ultimos {stock} disponible!</p>
-            <div className=" input-detail">      </div> 
-      </div> <ItemCounter item={item.stock}counter={contador} setCounter={setCantidad} agregar={agregar}/>
+                  <h2 className="titulo-producto">{item.nombre}</h2>
+                
+                  <h4>$ {item.precio}</h4>
+                  <div className="columnas-detail">
+                  <div className="item-tarjeta"><img src={tarjeta}/> 6x cuotas sin interes de  ${cuota}</div>
+                  <img src={camion}/> Envios a todo Buenos Aires</div>
+                  <p className="text-muted">Aproximadamente en 72 horas en tu casa</p>
+                  <p>Ultimos {stock} disponible!</p>
+                  <div className=" input-detail"></div> 
+      </div>
+       <ItemCounter item={item.stock}counter={contador} setCounter={setCantidad} agregar={agregar} descripcion={item} />
    </div>
                           
-                              </div>
+            </div>
                                 
-                              </div>
-                              </div>
+             </div>
+                </div>
                               
-                              </div>
-                              </div>
+                    </div>
+                         </div>
                           
                     
                               

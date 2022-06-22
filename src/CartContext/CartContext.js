@@ -1,5 +1,5 @@
 import { createContext, useState } from "react";
-import Cart from "../Cart/cart";
+
 
 
 export const CartContext = createContext()
@@ -45,7 +45,7 @@ function sumar(item){
 
 
 
-    return(<CartContext.Provider value={{ cart ,addCart, totalPrecio, carritoVacio, removeItem}}>
+    return(<CartContext.Provider value={{ cart ,addCart, totalPrecio, carritoVacio, removeItem, }}>
                  {children}
     </CartContext.Provider>)
 }
