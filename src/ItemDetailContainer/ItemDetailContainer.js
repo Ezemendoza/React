@@ -1,10 +1,10 @@
 import { useEffect, useState } from "react"
 import { Spinner } from "react-bootstrap"
-import { pedirDatos } from "../datos/pedirDatos"
 import { useParams } from "react-router-dom"
 import ItemDetail from "../Item/Item"
 import  "./ItemDetail.css"
-
+import { doc, getDoc } from "firebase/firestore"
+import { db } from "../firebase/config"
 export const ItemDetailContainer = () => {
 
     const [item, setItem] = useState(null)
@@ -16,10 +16,12 @@ export const ItemDetailContainer = () => {
     useEffect(() => {
         setLoading(true)
 
-        pedirDatos()
+            const docRef = doc(db, "productos", itemId)
+            getDoc(docRef)
             .then((resp) => {
-               setItem( resp.find((item) => item.id === Number(itemId)) )
-            })
+               setItem({ id:resp.id, ...resp.data()}
+               ) })
+            
             .catch((error) => {
                 console.log('ERROR', error)
             })
@@ -27,7 +29,7 @@ export const ItemDetailContainer = () => {
                 setLoading(false)
             })
     }, [])
-
+console.log(item)
     return (
         <section className="container my-5 row">
             

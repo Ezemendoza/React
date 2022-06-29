@@ -14,9 +14,7 @@ const ItemCounter = ({item, counter, setCounter, agregar, descripcion}) => {
      if(counter>1)setCounter(counter=counter-1)
     
     }
-    console.log(descripcion)
-    console.log(cart)
-    
+   
     const sisi = cart.some((el)=>el.id=== descripcion.id)
  if(sisi) return <TerminarCompra/>
     return (<div>
