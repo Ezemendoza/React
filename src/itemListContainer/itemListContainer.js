@@ -30,7 +30,7 @@ const ItemListContainer = () => {
             setLoading(false)
           })
     }, [categoriaId])
-    console.log(items)
+   
 
     return (
         <div className="fondo">

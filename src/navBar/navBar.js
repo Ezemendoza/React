@@ -4,7 +4,7 @@ import CartWidget from './CartWidget';
 import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../CartContext/CartContext';
-
+import { Perfil } from './perfil';
 
 const Menu = () => {
     const{cart, totalPrecio, carritoVacio, removeItem} = useContext(CartContext)
@@ -19,6 +19,7 @@ const Menu = () => {
 
     <Link to={"/cart"} className="mt-3 contenedor-carrito "><li className='mr-4'> 
     { (cart.length!==0) && <CartWidget/>  }</li></Link>
+    <Perfil/>
  
 </ul>
 </nav>

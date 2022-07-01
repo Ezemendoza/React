@@ -1,5 +1,6 @@
 import { useContext } from "react"
 import { CartContext } from "../CartContext/CartContext";
+import { Checkout } from "../Checkout/Checkout";
 import CarritoVacio from "./CarritoVacio";
 import "./Cart.css"
 
@@ -7,7 +8,7 @@ import "./Cart.css"
 const Cart = ({}) => {
     const{cart, totalPrecio, carritoVacio, removeItem} = useContext(CartContext)
   
-    if(cart.length === 0 ) return <CarritoVacio/>
+   // if(cart.length === 0 ) return <CarritoVacio/>
 
     return (
        <div className="row cartMenu ">
@@ -39,6 +40,7 @@ const Cart = ({}) => {
   
       ))
       }
+      <div>
        </div>
                  <div className="col-4 compra row">
                          <h3 className="col-6">total:${totalPrecio()}</h3>
@@ -47,6 +49,10 @@ const Cart = ({}) => {
                          </div>
                 </div>
            
+        </div>
+        
+
+        <Checkout/>
         </div>
     )
 }

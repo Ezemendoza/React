@@ -9,7 +9,7 @@ import { ContactoNavbar } from './navBar/ContactoNavbar';
 import { CartProvider } from './CartContext/CartContext';
 import Cart from './Cart/cart';
 import { UserProvider } from './UserContext/UserContext';
-
+import {Checkout} from './Checkout/Checkout'
 
 function App() {
 
@@ -23,6 +23,7 @@ function App() {
                             <Route path='/ubicacion' element={ <UbicacionNavbar/>}/>
                             <Route path='/contacto' element={ <ContactoNavbar/>}/>
                             <Route path='/cart' element={ <Cart/>}/>
+                            <Route path='/checkout' element={<Checkout/>} />
                             <Route path='/' element={ <ItemListContainer/>}/>
                             <Route path='/categorias/:categoriaId' element={ <ItemListContainer/>}/>          
                             <Route path='/item/:itemId' element={<ItemDetailContainer/>} />  
