@@ -1,38 +1,16 @@
-
-import './App.css';
-import Menu from './navBar/navBar';
-import ItemListContainer from './ItemListContainer/ItemListContainer';
-import {BrowserRouter,  Routes, Route} from "react-router-dom"
-import { ItemDetailContainer } from './ItemDetailContainer/ItemDetailContainer';
-import { UbicacionNavbar } from './navBar/UbicacionNavbar';
-import { ContactoNavbar } from './navBar/ContactoNavbar';
 import { CartProvider } from './CartContext/CartContext';
-import Cart from './Cart/cart';
+import RouteGeneral from "./Routes/RouteGeneral";
 import { UserProvider } from './UserContext/UserContext';
-import {Checkout} from './Checkout/Checkout'
 
 function App() {
 
+
   return ( 
-    <UserProvider>
+   <UserProvider>
         <CartProvider>
-                  <BrowserRouter>
-                      <Menu/>
-                            <Routes>
-                          
-                            <Route path='/ubicacion' element={ <UbicacionNavbar/>}/>
-                            <Route path='/contacto' element={ <ContactoNavbar/>}/>
-                            <Route path='/cart' element={ <Cart/>}/>
-                            <Route path='/checkout' element={<Checkout/>} />
-                            <Route path='/' element={ <ItemListContainer/>}/>
-                            <Route path='/categorias/:categoriaId' element={ <ItemListContainer/>}/>          
-                            <Route path='/item/:itemId' element={<ItemDetailContainer/>} />  
-                          
-                            </Routes>
-                            
-                    </BrowserRouter>
+                 <RouteGeneral/>
         </CartProvider>
-    </UserProvider>
+   </UserProvider>
   );
 }
 

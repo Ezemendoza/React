@@ -29,3 +29,15 @@ color: white;}
 .contenedor-carrito{
   margin-left: 10px;
 }
+.dropdown-navbar{
+  background-color: transparent;
+}
+.dropdown-navbar:hover{
+  background-color: transparent;
+  border-color: transparent ;
+}
+
+.btn{
+  border-color:transparent;
+  background: transparent;
+}

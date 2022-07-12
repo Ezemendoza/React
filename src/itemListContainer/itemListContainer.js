@@ -34,20 +34,25 @@ const ItemListContainer = () => {
 
     return (
         <div className="fondo">
-        <h2 className="titulo-principal">Catalogo</h2>
-        <Link to={"/categorias/lupa"}><button className="btn btn-primary">Lupa</button></Link>
-        <Link to={"/categorias/tiraled"}><button className="btn btn-primary">Tira Led</button></Link>
-    
-        <hr/>
-        {loading
-        ?
-        <Spinner animation="border" role="status">
-        <p className="visually-hidden">Loading...</p>
-      </Spinner>
-      :<ItemList items={items}/>
-      
-    }
         
+        <h2 className="titulo-principal">Catalogo</h2>
+        <div className='row col-12'>
+                        <div className=' col-1'>
+                        <Link to={"/categorias/lupa"}><button className="btn btn-primary">Lupa</button></Link>
+                        <Link to={"/categorias/tiraled"}><button className="btn btn-primary">Tira Led</button></Link>
+                        </div>
+       
+                
+                {loading
+                ?
+                <Spinner animation="border" role="status">
+                <p className="visually-hidden">Loading...</p>
+                </Spinner>
+                 :<ItemList items={items}/>
+                    
+            }
+                
+            </div>
        </div>
     )
 }

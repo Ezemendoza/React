@@ -7,9 +7,7 @@ export const CartProvider =({children})=>{
 
     const [cart, setCart]=useState([])
 
-
-
-
+    
 const addCart = (item)=>{
 
     const igual = retorno()
@@ -46,7 +44,7 @@ function sumar(item){
 
 
 
-    return(<CartContext.Provider value={{ cart ,addCart, totalPrecio, carritoVacio, removeItem, }}>
+    return(<CartContext.Provider value={{ cart ,addCart, totalPrecio, carritoVacio, removeItem}}>
                  {children}
     </CartContext.Provider>)
 }

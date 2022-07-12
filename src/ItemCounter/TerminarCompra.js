@@ -1,11 +1,12 @@
 import { Link } from "react-router-dom"
+import {BotonCounterPrincipal } from "../User/Elementos"
 
 const TerminarCompra = () => {
 
     return (
         <div>
           
-            <Link to="/cart" className="btn btn-primary">Terminar mi compra</Link>
+          <BotonCounterPrincipal><Link to="/cart" className="text-white">Terminar mi compra</Link></BotonCounterPrincipal>
         </div>
     )
 }

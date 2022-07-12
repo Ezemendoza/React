@@ -29,7 +29,7 @@ export const ItemDetailContainer = () => {
                 setLoading(false)
             })
     }, [])
-console.log(item)
+
     return (
         <section className="container my-5 row">
             

@@ -5,7 +5,7 @@ const ItemList = ( {items} ) => {
 
     return (
 
-            <div className="row">
+            <div className="col-7 row flex-start">
             {
                 items.map((item) => <Item key={item.id} item={item}/>)
             

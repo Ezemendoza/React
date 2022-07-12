@@ -1,26 +1,29 @@
-import { useContext } from "react"
+import {  useContext } from "react"
 import { CartContext } from "../CartContext/CartContext"
+import { BotonCounter, BotonCounterPrincipal} from "../User/Elementos"
 import TerminarCompra from "./TerminarCompra"
 
 
 
-const ItemCounter = ({item, counter, setCounter, agregar, descripcion}) => {
-    const{cart, totalPrecio, carritoVacio, removeItem} = useContext(CartContext)
+const ItemCounter = ({item, agregar, descripcion,counter, setCounter}) => {
+    const{cart} = useContext(CartContext)
 
     const incrementar = ()=>{
-        if(counter<item)setCounter(counter=counter+1)
-    }
-    const restar = ()=>{
-     if(counter>1)setCounter(counter=counter-1)
-    
-    }
-   
+      if(counter<item)setCounter(counter=counter+1)
+  }
+  const restar = ()=>{
+   if(counter>1)setCounter(counter=counter-1)
+  
+  }
     const sisi = cart.some((el)=>el.id=== descripcion.id)
- if(sisi) return <TerminarCompra/>
-    return (<div>
-        <button onClick={restar} className="btn btn-primary">-</button><input type="number" value={counter} className=" text-center"/><button className="btn btn-primary" onClick={incrementar}>+</button>
-      
-             <button  className='btn btn-primary w-100' onClick={agregar}> Comprar</button>
+  
+          return (
+            <div className="ml-4 ">
+                  <BotonCounter onClick={restar}>-</BotonCounter>
+                                                        <input type ="number" value={counter}/> {item.cantidad}
+                                                        <BotonCounter onClick={incrementar}>+</BotonCounter>  
+                    {sisi ? <TerminarCompra/>: <BotonCounterPrincipal onClick={agregar}> Comprar</BotonCounterPrincipal>}
+           
              </div>
 
     )

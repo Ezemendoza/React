@@ -2,13 +2,14 @@ import { useContext, useState } from "react"
 import { CartContext } from "../CartContext/CartContext"
 import { collection, getDocs, addDoc, writeBatch, query, where, documentId } from "firebase/firestore"
 import {db} from "../firebase/config"
-
+import "./Checkout.css"
+import {BsArrowRight} from "react-icons/bs";
 
 
 
 export const Checkout =()=>{
 
-    const {cart, totalPrecio, carritoVacio} =  useContext(CartContext)
+    const {cart, totalPrecio} =  useContext(CartContext)
     const [orderId, setOrderId] = useState(null)
 
     const nuevaOrden = async () =>{
@@ -39,7 +40,7 @@ export const Checkout =()=>{
     if(sinStock.length===0){
         addDoc(ordersRef,orden)
              .then((doc)=>{
-                console.log(doc.id)
+              
                 setOrderId(doc.id)
                   batch.commit()
                 
@@ -56,7 +57,8 @@ export const Checkout =()=>{
     return(
         <div>
             <h3> 
-                <button onClick={nuevaOrden}> Comprar</button>
+              
+                <button className="boton-compra"  onClick={nuevaOrden}><p className="texto-boton">Ir a pagar </p><BsArrowRight/></button>
               
             </h3>
         </div>

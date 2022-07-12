@@ -7,7 +7,7 @@ import { CartContext } from '../CartContext/CartContext';
 import { Perfil } from './perfil';
 
 const Menu = () => {
-    const{cart, totalPrecio, carritoVacio, removeItem} = useContext(CartContext)
+    const{cart} = useContext(CartContext)
 
     return <nav className="listaNavbar">
         
