@@ -4,14 +4,16 @@ const ItemDetail = ({item}) => {
 
 
     return (
+        
         <div className="card-item-lista">
-        <h2>{item.nombre}</h2>
+     <Link to={`/item/${item.id}`} className="card-item-estilo">
+  
         <img src={item.img} className="img-item-lista"/>
    
-        <h4>Precio: ${item.precio}</h4>
-        <Link to={`/item/${item.id}`}><button className="btn btn-primary my-2">Ver más</button> </Link>
-        
-        <hr/>
+        <h6 className="precio-item-detail">${item.precio}</h6>
+            <p className=" mb-0 categoria-item-detail">{item.nombre}</p></Link>
+        <p className="text-muted categoria-item-detail">{item.categoria}</p>
+  
     </div>
     )
 }

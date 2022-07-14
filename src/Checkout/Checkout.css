@@ -1,7 +1,7 @@
 .boton-compra {
     min-width: 130px;
     height: 40px;
-    width: 250px;
+    width: 100%;
     color: #fff;
     padding: 8px 15px;
     font-weight: bold;
@@ -11,12 +11,17 @@
     display: inline-block;
     outline: none;
     border: 1px solid #000;
-    color: white;
-    background: transparent;
+    top: 2px;
+    left: 2px;
+    background-color: #000;
+    text-decoration: none;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     
+  }
+  a{
+    text-decoration: none;
   }
   .boton-compra:hover {
     opacity: 80%;
@@ -32,9 +37,55 @@
     left: 2px;
     transition: 0.2s;
     background-color: #000;
- 
+    text-decoration:none;
   }
   .texto-boton{
     text-align: left;
     font-size: 20px;
   }
+.texto-checkout{
+  width: 40%;
+}
+  .check{
+    width: 1000%;
+  }
+  .columnas-checkout{
+    margin-top: 55px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    align-content: center;
+  }
+  .img-check{
+    width: 100%;
+  }
+  .texto-boton-checkout{
+    margin-bottom: 1px;
+  }
+.item-counter{
+  width: 125%;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+.item-comprar{
+  width: 100%;
+  margin-top: 10%;
+  margin-left: 15%;
+}
+@media (max-width: 1000px){
+    .img-check{
+      width: 200%;
+    }
+.texto-checkout{
+  margin-left: 30px;
+  width: 100%;
+}
+.boton-compra{
+  width: 50%;
+}
+.item-counter{
+  width: 100%;
+}
+    }

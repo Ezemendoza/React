@@ -1,66 +1,39 @@
-import { useContext, useState } from "react"
+import { useContext} from "react"
 import { CartContext } from "../CartContext/CartContext"
-import { collection, getDocs, addDoc, writeBatch, query, where, documentId } from "firebase/firestore"
-import {db} from "../firebase/config"
 import "./Checkout.css"
-import {BsArrowRight} from "react-icons/bs";
+import { UserContext } from "../UserContext/UserContext"
+import check from '../img/check.png'
+import { Link } from "react-router-dom"
 
 
 
 export const Checkout =()=>{
 
-    const {cart, totalPrecio} =  useContext(CartContext)
-    const [orderId, setOrderId] = useState(null)
+    const {cart, setCart, totalPrecio,orderId,cuota} =  useContext(CartContext)
 
-    const nuevaOrden = async () =>{
-            const orden ={
-                items: cart.map(({id,cantidad,nombre,precio})=>({id,cantidad,nombre,precio})),
-                total:totalPrecio()
-            }
-    
-        const batch = writeBatch(db)
-        const ordersRef = collection (db, "ordenes")
-        const productosRef= collection(db, "productos")
-        const q= query(productosRef,where(documentId(), `in`, cart.map((el)=>el.id)))
-        
-        const sinStock= []
-        const productos = await getDocs(q)
+    const{codigo,expresiones, nombreEntrega, apellidoEntrega,calleEntrega, departamentoEntrega,cpEntrega, localidadEntrega, provinciaEntrega, telefono,titularTarjeta,} = useContext(UserContext)
 
-        productos.docs.forEach((doc)=>{
-            const agregarProductos =cart.find(prod=>prod.id===doc.id)
-            if((doc.data().stock - agregarProductos.stock) >= 0){
-                batch.update(doc.ref,{stock:doc.data().stock-agregarProductos.cantidad})
-            }
-            else{
-                sinStock.push(agregarProductos)
-            }
-        })
-
-    
-    if(sinStock.length===0){
-        addDoc(ordersRef,orden)
-             .then((doc)=>{
-              
-                setOrderId(doc.id)
-                  batch.commit()
-                
-        })
-    }
-    else{
-        console.log("sin stock")
-    }
-
-    }
+const borrar = ()=>{
+    setCart((null))
+    console.log(cart)
+}
+   
     
     
 
     return(
-        <div>
-            <h3> 
-              
-                <button className="boton-compra"  onClick={nuevaOrden}><p className="texto-boton">Ir a pagar </p><BsArrowRight/></button>
-              
-            </h3>
+        <div className="columnas-checkout">
+             <div className="col-1">   <img src={check} className="img-check"/></div>
+            <div className="texto-checkout"><h2><strong>     ! Gracias Por Su Compra!</strong>      </h2>
+                        <h5 className="mt-3 mb-3">La compra fue confirmada</h5>
+         
+               <p className="texto-boton-checkout">Su orden de compra es: <strong>{orderId}</strong></p>
+               <p className="texto-boton-checkout">El pedido sera entregado en <strong>{calleEntrega.campo}</strong> <strong>{cpEntrega.campo}</strong> en la localidad de <strong>{localidadEntrega.campo}</strong> en la provincia de <strong>{provinciaEntrega.campo} </strong> a nombre de <strong>{nombreEntrega.campo} {apellidoEntrega.campo}</strong></p>
+              <p className="texto-boton-checkout">El total de la compra fue de  $ <strong>{codigo.booleano=="true" ? -totalPrecio()*0.15+totalPrecio():totalPrecio()}</strong> en <strong>{cuota.value}</strong> cuotas</p>
+              <Link to={"/"}><button className="boton-compra mt-4" >Seguir comprando</button></Link>
+              </div>
+            
+
         </div>
     )
 

@@ -13,9 +13,7 @@ return(
       <li className="nav-item ml-4" id="palabraHeader">
         <a className="nav-link" href="#galeria__detalles">Detalles</a>
         </li>
-        <li className="nav-item ml-4" id="palabraHeader">
-          <a className="nav-link" href="#galeria__descripcion">Descripcion</a>
-          </li>
+      
        
           </ul>
           </div>
@@ -32,8 +30,7 @@ return(
       <dd className="col-sm-9 color">{item.color}</dd>
     
     </dl>
-    <h2 className="mb-5" id="galeria__descripcion">Descripcion</h2>
-  <p>{item.descripcion}</p>
+    
 
 </div>
 

@@ -3,16 +3,22 @@ import { CartContext } from "../CartContext/CartContext"
 import ResumenCarrito from "../ResumenCarrito/ResumenCarrito"
 import ComponenteInput from "../User/Input"
 import { UserContext } from "../UserContext/UserContext"
-import {Checkout} from "../Checkout/Checkout"
 import "./Tarjeta.css"
+import { Link } from "react-router-dom"
+import { Label } from "../User/Elementos"
+
+
+
 
 const Tarjeta = ()=>{
 
-    const{totalPrecio, } = useContext(CartContext)
-    const{codigo,expresiones, numeroTarjeta, setnumeroTarjeta,titularTarjeta, settitularTarjeta,vencimientoTarjeta, setvencimientoTarjeta,cvvTarjeta, setcvvTarjeta} = useContext(UserContext)
-    const [cuota, setCuota] = useState({value:"", precio:""})
+    const{totalPrecio, nuevaOrden, setCuota } = useContext(CartContext)
+    const{cambiarTerminos, terminos, codigo,expresiones, numeroTarjeta, setnumeroTarjeta,titularTarjeta, settitularTarjeta,vencimientoTarjeta, setvencimientoTarjeta,cvvTarjeta, setcvvTarjeta} = useContext(UserContext)
+    const [orderId, setOrderId] = useState(null)
 
-
+    const onChangeTerminos = (e) => {
+        cambiarTerminos(e.target.checked)
+      }
         const handerChange=(e)=>{
       if(codigo.booleano==="true"){
             setCuota({value:e.target.value, precio:-totalPrecio()*0.15+totalPrecio()})
@@ -44,9 +50,9 @@ const Tarjeta = ()=>{
 
            <select onChange={(e)=>handerChange(e)} >
                <option>Elegi las cuotas</option>
-               <option value={1}>1 cuota {codigo.booleano=="true" ? (-totalPrecio()*0.15+totalPrecio()):totalPrecio()}</option>
-               <option value={3}>3 cuota {codigo.booleano=="true" ? (-totalPrecio()*0.15+totalPrecio())/3:totalPrecio()/3}</option>
-               <option value={6}>6 cuota {codigo.booleano=="true" ? (-totalPrecio()*0.15+totalPrecio())/6:totalPrecio()/6}</option>
+               <option value={1}>1 x $ {codigo.booleano=="true" ? (-totalPrecio()*0.15+totalPrecio()):totalPrecio()}</option>
+               <option value={3}>3 x $ {codigo.booleano=="true" ? (-totalPrecio()*0.15+totalPrecio())/3:totalPrecio()/3}</option>
+               <option value={6}>6 x $ {codigo.booleano=="true" ? (-totalPrecio()*0.15+totalPrecio())/6:totalPrecio()/6}</option>
            </select>
         </div>
 
@@ -64,7 +70,7 @@ const Tarjeta = ()=>{
              <ComponenteInput
                 estado={titularTarjeta}
                 cambiarEstado={settitularTarjeta}
-                tipo="number"
+                tipo="text"
                 label="Titular de la tarjeta"
                 placeholder="Titular de la tarjeta"
                 name="nombre"
@@ -87,23 +93,26 @@ const Tarjeta = ()=>{
               estado={cvvTarjeta}
               cambiarEstado={setcvvTarjeta}
               tipo="text"
-              label="Apellido"
-              placeholder="Ezemendoza"
-              name="apellido"
+              label="CVV"
+              placeholder="CVV"
+              name="CVV"
               leyendaError="Introduce tu apellido"
-              expresionRegular={expresiones.nombre}
+              expresionRegular={expresiones.cvv}
 					      />
             </div>
 
 
         </div>
 
-           
+        <Label> 
+                  <input type="checkbox" name="terminos" id="terminos" checked={terminos} onChange={onChangeTerminos} />
+                  Acepto los Terminos y Condiciones
+                </Label>
           
                     
            </div>
            <div className="checkout-tarjeta">
-           <Checkout/>
+           <Link to={"/checkout"}><button className="boton-compra" onClick={nuevaOrden}> Finalizar compra</button></Link>
            <p>Al finalizar se estara aceptando las <strong>bases y condiciones</strong></p>
            </div>
           

@@ -6,6 +6,7 @@ import { Link } from 'react-router-dom';
 import { Boton, Formulario, Enlace} from "../User/Elementos";
 import ComponenteInput from "../User/Input";
 import { UserContext } from "../UserContext/UserContext";
+import "./Login.css"
 
 
 const Login = () => {
@@ -54,7 +55,7 @@ const Login = () => {
     return (
       <div>
 
-        <h1>{registrado ? "REGISTRADO": "Registrate"}</h1>
+        <h1 className="iniciar-Sesion">Inicia Sesion</h1>
         <Formulario>
         <ComponenteInput
               estado={email}

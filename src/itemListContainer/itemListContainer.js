@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react';
 import ItemList from "../ItemList/ItemList"
 import "./ItemListContainer.css"
 import { Spinner } from "react-bootstrap";
-import { Link, useParams } from "react-router-dom";
+import {useParams } from "react-router-dom";
 import { collection, getDocs, query, where } from 'firebase/firestore';
 import { db } from '../firebase/config';
 
@@ -11,7 +11,7 @@ const ItemListContainer = () => {
     const[loading, setLoading]=useState(true)
     
     const {categoriaId} = useParams();
-
+console.log(categoriaId)
 
     useEffect(() => {
         setLoading(true)
@@ -36,13 +36,9 @@ const ItemListContainer = () => {
         <div className="fondo">
         
         <h2 className="titulo-principal">Catalogo</h2>
-        <div className='row col-12'>
-                        <div className=' col-1'>
-                        <Link to={"/categorias/lupa"}><button className="btn btn-primary">Lupa</button></Link>
-                        <Link to={"/categorias/tiraled"}><button className="btn btn-primary">Tira Led</button></Link>
-                        </div>
-       
-                
+        
+                    
+            
                 {loading
                 ?
                 <Spinner animation="border" role="status">
@@ -52,7 +48,7 @@ const ItemListContainer = () => {
                     
             }
                 
-            </div>
+          
        </div>
     )
 }

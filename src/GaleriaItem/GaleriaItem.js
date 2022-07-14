@@ -45,7 +45,7 @@ const GaleriaItem = ({item}) => {
                  
                   <ol className="breadcrumb">
                     <li className="breadcrumb-item"><Link to={"/"}>Inicio</Link></li>
-                    <li className="breadcrumb-item"> <Link to={"/categorias/lupa"}>{item.categoria}</Link></li>
+                    <li className="breadcrumb-item"> {item.categoria== "tiempo libre" ? <Link to={"/item/tiempolibre"}>{item.categoria}</Link>:<Link to={`/item/${item.categoria}`}>{item.categoria}</Link>}</li>
                     <li className="breadcrumb-item active" aria-current="page">{item.nombre}</li>
                   </ol>
   
@@ -76,10 +76,10 @@ const GaleriaItem = ({item}) => {
                   <div className="item-tarjeta"><img src={tarjeta}/> 6x cuotas sin interes de  ${cuota}</div>
                   <img src={camion}/> Envios a todo Buenos Aires</div>
                   <p className="text-muted">Aproximadamente en 72 horas en tu casa</p>
-                  <p>Ultimos {stock} disponible!</p>
+                  {item.stock<= 0 ? <p>No hay stock de este producto</p> : <p>Ultimos {stock} disponible!</p>}
                   <div className=" input-detail"></div> 
       </div>
-       <ItemCounter item={item.stock}counter={contador} setCounter={setCantidad} agregar={agregar} descripcion={item} />
+      {item.stock >= 0 &&    <ItemCounter item={item.stock}counter={contador} setCounter={setCantidad} agregar={agregar} descripcion={item} />}
    </div>
                           
             </div>

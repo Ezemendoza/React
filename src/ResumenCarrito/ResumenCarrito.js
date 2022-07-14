@@ -48,7 +48,7 @@ return(
      
      <CodigoDescuento/>
  
-
+    {terminos && <DetalleCarrito/>}
 
      <div className="metodos-pagos-row">
             <p><strong>OPCIONES DE PAGOS</strong></p>

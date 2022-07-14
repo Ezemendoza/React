@@ -1,9 +1,9 @@
-import { Boton, ContenedorTerminos, Formulario,  Label,  MensajeError } from "./Elementos";
+import { Boton, ContenedorTerminos, Formulario,  Label} from "./Elementos";
 import React, { useContext } from "react";
 import { UserContext } from "../UserContext/UserContext";
 import "./User.css"
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faExclamationTriangle } from '@fortawesome/free-solid-svg-icons';
+
+
 import ComponenteInput from "./Input";
 
 
@@ -121,12 +121,7 @@ export const User = ({}) => {
                   Acepto los Terminos y Condiciones
                 </Label>
               </ContenedorTerminos>
-              { false &&
-              <MensajeError>
-                    <p> <FontAwesomeIcon icon={faExclamationTriangle}/>
-                    <b>Error:</b> Por favor rellena el formulario correctamente</p>
-                </MensajeError>
-                }
+      
                 <Boton onClick={submit} className="btn" > Registrarte</Boton>
 
           </Formulario>

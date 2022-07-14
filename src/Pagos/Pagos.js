@@ -32,6 +32,7 @@ const Pagos =() =>{
         }
         else{
           cambiarFormularioValido(false)
+
         }
       }
       
@@ -39,7 +40,7 @@ const Pagos =() =>{
     return(
     <div>
 
-            <h2>INFORMACION DE ENTREGA</h2>
+      <h2  className="informacion-pagos"><strong>INFORMACION DE ENTREGA</strong></h2>
     <div className="division-entregas">
     <div className="div-contacto col-7">
        
@@ -53,6 +54,7 @@ const Pagos =() =>{
               name="nombre"
               leyendaError="Introduce tu nombre"
               expresionRegular={expresiones.nombre}
+              required="required" 
 					      />
            
               <ComponenteInput
@@ -64,6 +66,7 @@ const Pagos =() =>{
               name="apellido"
               leyendaError="Introduce tu apellido"
               expresionRegular={expresiones.nombre}
+              required="required" 
 					      />
       </div>
             <div className="grupo-contacto ">
@@ -146,8 +149,10 @@ const Pagos =() =>{
                   Acepto los Terminos y Condiciones
                 </Label>
               </ContenedorTerminos>
+           <div className="w-100 ">
+           <Boton onClick={submit} className="boton-compra" >{terminos && <Link to={"/tarjeta"}> Finalizar compra<BsArrowRight/></Link>}</Boton>
+           </div>
            
-             <Boton onClick={submit} className="boton-compra" >   <Link to={"/tarjeta"} className="color-white">Finalizar compra<BsArrowRight/></Link></Boton>
                 </div>
           </div>
             <ResumenCarrito className="col-4"/>

@@ -1,4 +1,34 @@
-.img-item-lista{width: 80%}
-.card-item-lista{width: 30%}
+.img-item-lista{width: 220px;
+height: 220px;
+}
+.card-item-lista{width: 258px;
+    position: relative;}
 .imagen-producto{width: 85%;}
-.titulo-producto{margin-top:20%;}
+.card-item-estilo{
+    text-decoration: none;
+color: black;
+}
+.card-item-estilo:hover{
+    text-decoration: none;
+    color: black;
+}
+.card-item-lista:hover{
+    border: 1px solid;
+}
+
+.precio-item-detail{
+    display: flex;
+    background-color: red;
+    font-weight: 700;
+    opacity: 60%;
+    position:absolute; top:0; left:0;
+  color: white;
+    line-height: 20px;
+    z-index: 1000;
+}
+.categoria-item-detail{
+    display: flex;
+    color: black;
+    opacity: 70%;
+}
+

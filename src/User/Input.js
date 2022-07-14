@@ -36,6 +36,7 @@ const ComponenteInput = ({estado, cambiarEstado, tipo, label, placeholder, name,
 					onKeyUp={validacion}
 					onBlur={validacion}
 					valido={estado.valido}
+					
 				/>
 				<IconoValidacion 
 					icon={estado.valido === 'true' ? faCheckCircle : faTimesCircle}

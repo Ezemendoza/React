@@ -24,13 +24,12 @@ const cerrar = ()=>{
         
     
           <Dropdown>
-                    <Dropdown.Toggle className='mt-3 dropdown-navbar'  >
+                    <Dropdown.Toggle className='mt-3 dropdown-navbar btn'  >
                     <Person/>
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                     <Link to={'/perfil'} className="dropdown-item">Mi perfil</Link>
-                     <Link to={"/contacto"} className="dropdown-item"> Mis compras</Link>
+                
                       <button onClick={ ()=> cerrar(auth)} className="dropdown-item"> Cerrar Sesion</button>
                     </Dropdown.Menu>
                   </Dropdown>

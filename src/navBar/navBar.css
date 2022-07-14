@@ -1,25 +1,23 @@
-.listaNavbar{ background-color:#557996;
-    width: 100%;
-      display: flex;
-      flex-direction: row;
-      justify-content: space-between;
-      margin-right: 10px;
-     
-    }
+#responsive-navbar-nav{
+  justify-content: space-between;
+}
     .listNavbar{
       width: 25%;
       list-style: none;
       display: flex;
       flex-direction: row;
-      justify-content: space-evenly;
+      justify-content: flex-end;
       align-items: center;
+      margin-right: 20px;
 
     }
     .App-logo {
-      width: 25%;
+      margin-top: 0% !important;
+      width: 60px;
       pointer-events: none;
     }
 .palabra__lista{text-decoration: none;
+  margin-top: 0% !important;
 color: white;}
 
 .contador-carrito{
@@ -27,7 +25,9 @@ color: white;}
 }
 
 .contenedor-carrito{
-  margin-left: 10px;
+margin-top: 0% !important;
+  color: white;
+  width: 52%;
 }
 .dropdown-navbar{
   background-color: transparent;
@@ -41,3 +41,62 @@ color: white;}
   border-color:transparent;
   background: transparent;
 }
+.btn:focus{
+  background-color: transparent !important;
+  border-color: transparent !important;
+  box-shadow: none !important;
+}
+.collasible-nav-dropdown{
+  color:white ! ;
+}
+.navbar-centrado{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between; 
+  width: 20%;
+}
+.navbar-nav{
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  text-decoration: none;
+}
+
+.centrado{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+
+}
+.datos-navbar{
+  margin-right: 110px;
+}
+.dropdown-navbar{margin-top: 10% !important;}
+.navbar-columna{
+padding-top: 0% ;
+padding-bottom: 0%;
+}
+.navbar{
+  padding-top: 0%;
+
+}
+@media (max-width: 1000px){
+  .navbar-columna{
+    flex-direction: column;
+    margin-top: 0%;
+}
+  .centrado{
+    display: flex;
+    flex-direction: column;
+    margin-left: 20%;
+  }
+  .palabra__lista{
+    margin-right: 5%;
+}
+.datos-navbar{
+  display: flex;
+  flex-direction: row;
+  margin-right: 0%;
+}
+  }

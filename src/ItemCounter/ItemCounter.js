@@ -1,6 +1,5 @@
 import {  useContext } from "react"
 import { CartContext } from "../CartContext/CartContext"
-import { BotonCounter, BotonCounterPrincipal} from "../User/Elementos"
 import TerminarCompra from "./TerminarCompra"
 
 
@@ -18,11 +17,15 @@ const ItemCounter = ({item, agregar, descripcion,counter, setCounter}) => {
     const sisi = cart.some((el)=>el.id=== descripcion.id)
   
           return (
-            <div className="ml-4 ">
-                  <BotonCounter onClick={restar}>-</BotonCounter>
+            <div className="ml-4">
+              <div className=" item-counter">
+                  <button className="boton-compra-galeria-input" onClick={restar}>-</button>
                                                         <input type ="number" value={counter}/> {item.cantidad}
-                                                        <BotonCounter onClick={incrementar}>+</BotonCounter>  
-                    {sisi ? <TerminarCompra/>: <BotonCounterPrincipal onClick={agregar}> Comprar</BotonCounterPrincipal>}
+                                                        <button className="boton-compra-galeria-input" onClick={incrementar}>+</button>  
+                   </div>
+                    <div className="item-comprar">
+                    {sisi ? <TerminarCompra/>: <button className="boton-compra" onClick={agregar}> Comprar</button>}
+                    </div>
            
              </div>
 

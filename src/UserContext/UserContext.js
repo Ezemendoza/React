@@ -46,11 +46,12 @@ const expresiones = {
     nacimiento:/^([0-2][0-9]|3[0-1])(\/|-)(0[1-9]|1[0-2])\2(\d{4})$/,
     numero:/^[a-zA-Z0-9_-]{20}$/,
     vencimiento:/^\d{2}\/\d{2}$/,
+    cvv:/^\d{3}$/ ,
   }
 
 
 const registrarUsuario = async (usuario, nombre, password, email , telefono)=>{
-    console.log(email,telefono, usuario, nombre, password)
+
         const firestore = collection(db, "usuarios")
   
     const info= await createUserWithEmailAndPassword(
@@ -68,6 +69,7 @@ const registrarUsuario = async (usuario, nombre, password, email , telefono)=>{
         setDoc(docRef,{ email:email, password:password, usuario: usuario, nombre: nombre,  telefono: telefono, nacimiento: nacimiento})
         setRegistrado(true)
          }
+         
 
 
     return(
