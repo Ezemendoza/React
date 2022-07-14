@@ -9,7 +9,7 @@ export const CartContext = createContext()
 export const CartProvider =({children})=>{
 
     const [cart, setCart]=useState([])
-    const{nombreEntrega, apellidoEntrega, calleEntrega, departamentoEntrega, cpEntrega, localidadEntrega, provinciaEntrega, telefono} = useContext(UserContext)
+    const{nombreEntrega, apellidoEntrega, calleEntrega, departamentoEntrega, cpEntrega, localidadEntrega, provinciaEntrega, telefono,email} = useContext(UserContext)
     const [orderId, setOrderId] = useState(null)
     const [cuota, setCuota] = useState({value:"", precio:""})
 
@@ -25,6 +25,7 @@ export const CartProvider =({children})=>{
             Localidad:localidadEntrega.campo,
             Pronvincia:provinciaEntrega.campo,
             telefono:telefono.campo,
+            email:email.campo
             
         }
 console.log(cart)

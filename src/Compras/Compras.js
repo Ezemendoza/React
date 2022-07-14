@@ -1,25 +1,31 @@
-import { collection,getDocs} from "firebase/firestore";
-import { useEffect, useState } from "react";
+import { collection,getDocs, query, where} from "firebase/firestore";
+import { useContext, useEffect, useState } from "react";
 import { db } from "../firebase/config";
+import { UserContext } from "../UserContext/UserContext";
 import ItemCompras from "./ItemCompras";
 
 
 const Compras = ()=>{
-    
+    const{email}=useContext(UserContext)
 
     const [posts, setPosts] = useState([]);
 
     useEffect( () => {
-    const buscar =  getDocs(collection(db, 'ordenes')).
-    then((resp)=>{
-        const item= resp.docs.map((el)=> {return{
-            id:el.id,
-            ...el.data(),
-        }
-            
-    })
- setPosts(item)})
-}, [])
+        const productos= collection(db, "ordenes")
+        const q = query(productos, where("email", "==", email.campo)) 
+        getDocs(q)
+            .then((resp)=>{
+                const newItem= resp.docs.map((el)=> {return{
+                    id:el.id,
+                    ...el.data()
+                }
+                    
+                })
+               setPosts(newItem)})
+              
+    }, [])
+
+
 
     return(
             <div>
