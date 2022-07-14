@@ -47,3 +47,12 @@
     margin-right: 15px;
     justify-content: flex-end;
 }
+@media (max-width: 1000px){
+    .item-compras{
+        display: flex;
+        flex-direction: column;
+        border: 1px solid;
+        border-radius: 45px;
+        width: 100%;
+    }
+}
