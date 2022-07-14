@@ -15,7 +15,7 @@ export const CartProvider =({children})=>{
 
     const nuevaOrden = async () =>{
         const orden ={
-            items: cart.map(({id,cantidad,nombre,precio})=>({id,cantidad,nombre,precio})),
+            items: cart.map(({id,cantidad,nombre,precio,img})=>({id,cantidad,nombre,precio,img})),
             total:totalPrecio(),
             NombreEntrega:nombreEntrega.campo,
             apellidoEntrega:apellidoEntrega.campo,
@@ -24,9 +24,10 @@ export const CartProvider =({children})=>{
             CP:cpEntrega.campo,
             Localidad:localidadEntrega.campo,
             Pronvincia:provinciaEntrega.campo,
-            telefono:telefono.campo
+            telefono:telefono.campo,
+            
         }
-
+console.log(cart)
     const batch = writeBatch(db)
     const ordersRef = collection (db, "ordenes")
     const productosRef= collection(db, "productos")

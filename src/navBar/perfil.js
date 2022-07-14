@@ -1,12 +1,13 @@
 import { Person } from 'react-bootstrap-icons';
 import Dropdown from 'react-bootstrap/Dropdown'
+import { Link } from 'react-router-dom';
 import './navBar.css';
 import {app} from "../firebase/config"
-import { getAuth} from "firebase/auth";
+import { getAuth, signOut} from "firebase/auth";
 import { UserContext } from '../UserContext/UserContext';
 import { useContext } from 'react';
 
-export const Perfil = () => {
+export const Perfil = ({}) => {
   const{setRegistrado} = useContext(UserContext)
  const auth = getAuth(app)
 
@@ -28,7 +29,7 @@ const cerrar = ()=>{
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                
+                      <Link to={"/miscompras"}> <button className='dropdown-item'>Mis compras </button></Link>
                       <button onClick={ ()=> cerrar(auth)} className="dropdown-item"> Cerrar Sesion</button>
                     </Dropdown.Menu>
                   </Dropdown>

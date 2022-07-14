@@ -6,6 +6,9 @@ import Cart from '../Cart/cart';
 import { Recuperarcontrasena } from "../User/RecuperarContrasena";
 import Pagos from "../Pagos/Pagos";
 import Tarjeta from "../Tarjeta/Tarjeta";
+import Compras from "../Compras/Compras";
+import ItemCompras from "../Compras/ItemCompras";
+import ItemCompraDetalle from "../Compras/ItemCompras";
 
 const RoutePrivado = () => {
 
@@ -23,7 +26,7 @@ const RoutePrivado = () => {
                             <Route path='/recuperarContrasena' element={<Recuperarcontrasena/>}/>
                             <Route path="/pagos" element={<Pagos/>}/>
                             <Route path="/tarjeta" element={<Tarjeta/>}/>
-                    
+                            <Route path="/miscompras" element={<Compras/>}/>
                             </Routes>
                 </>
                    
