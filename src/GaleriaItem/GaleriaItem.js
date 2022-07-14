@@ -79,7 +79,7 @@ const GaleriaItem = ({item}) => {
                   {item.stock<= 0 ? <p>No hay stock de este producto</p> : <p>Ultimos {stock} disponible!</p>}
                   <div className=" input-detail"></div> 
       </div>
-      {item.stock >= 0 &&    <ItemCounter item={item.stock}counter={contador} setCounter={setCantidad} agregar={agregar} descripcion={item} />}
+      {item.stock > 0 &&    <ItemCounter item={item.stock}counter={contador} setCounter={setCantidad} agregar={agregar} descripcion={item} />}
    </div>
                           
             </div>

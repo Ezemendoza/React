@@ -2,18 +2,13 @@ import { Boton, ContenedorTerminos, Formulario,  Label} from "./Elementos";
 import React, { useContext } from "react";
 import { UserContext } from "../UserContext/UserContext";
 import "./User.css"
-
-
 import ComponenteInput from "./Input";
 
-
-
-
-export const User = ({}) => {
-    const{handlerCambios, registrarUsuario, usuario,cambiarUsuario, nombre,cambiarNombre, nacimiento,cambiarNacimiento, email,cambiarEmail, password,cambiarPassword,cambiarPassword2,password2, cambiarTerminos,terminos,formularioValido,cambiarFormularioValido, expresiones} = useContext(UserContext)
+export const User = () => {
+    const{handlerCambios, registrarUsuario, usuario,cambiarUsuario, nombre,cambiarNombre, nacimiento,cambiarNacimiento, email,cambiarEmail, password,cambiarPassword,cambiarPassword2,password2, cambiarTerminos,terminos,cambiarFormularioValido, expresiones} = useContext(UserContext)
 
     const validarPassword = () =>{
-      if(password2.campo != password.campo){
+      if(password2.campo !== password.campo){
          return cambiarPassword2({...password2 , valido: "false"})
       }
     }
@@ -26,7 +21,7 @@ export const User = ({}) => {
 
    
       if(
-        usuario.valido== "true" &&
+        usuario.valido=== "true" &&
         nombre.valido === 'true' &&
         password.valido === 'true' &&
         password2.valido === 'true' &&

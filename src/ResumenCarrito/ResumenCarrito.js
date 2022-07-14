@@ -1,4 +1,3 @@
-
 import { useContext } from "react"
 import { CartContext } from "../CartContext/CartContext";
 import metodos from '../img/metodos-pagos.webp'
@@ -7,7 +6,7 @@ import CodigoDescuento from "../Cart/CodigoDescuento"
 import DetalleCarrito from "./DetalleCarrito"
 const ResumenCarrito = ()=>{
     const{cart, totalPrecio} = useContext(CartContext)
-    const{codigo, setCodigo,terminos} = useContext(UserContext)
+    const{codigo,terminos} = useContext(UserContext)
    
 
 return(
@@ -38,7 +37,7 @@ return(
              <p className="detalles-productos-carrito-iva">(Incluye iva $ {totalPrecio()* 0.21})</p>
             </div>
         
-        <p ><strong> $ {codigo.booleano=="true" ? -totalPrecio()*0.15+totalPrecio():totalPrecio()}</strong> </p>
+        <p ><strong> $ {codigo.booleano==="true" ? -totalPrecio()*0.15+totalPrecio():totalPrecio()}</strong> </p>
     </div>
     
          

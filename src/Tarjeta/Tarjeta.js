@@ -1,4 +1,4 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
 import { CartContext } from "../CartContext/CartContext"
 import ResumenCarrito from "../ResumenCarrito/ResumenCarrito"
 import ComponenteInput from "../User/Input"
@@ -14,7 +14,6 @@ const Tarjeta = ()=>{
 
     const{totalPrecio, nuevaOrden, setCuota } = useContext(CartContext)
     const{cambiarTerminos, terminos, codigo,expresiones, numeroTarjeta, setnumeroTarjeta,titularTarjeta, settitularTarjeta,vencimientoTarjeta, setvencimientoTarjeta,cvvTarjeta, setcvvTarjeta} = useContext(UserContext)
-    const [orderId, setOrderId] = useState(null)
 
     const onChangeTerminos = (e) => {
         cambiarTerminos(e.target.checked)
@@ -50,9 +49,9 @@ const Tarjeta = ()=>{
 
            <select onChange={(e)=>handerChange(e)} >
                <option>Elegi las cuotas</option>
-               <option value={1}>1 x $ {codigo.booleano=="true" ? (-totalPrecio()*0.15+totalPrecio()):totalPrecio()}</option>
-               <option value={3}>3 x $ {codigo.booleano=="true" ? (-totalPrecio()*0.15+totalPrecio())/3:totalPrecio()/3}</option>
-               <option value={6}>6 x $ {codigo.booleano=="true" ? (-totalPrecio()*0.15+totalPrecio())/6:totalPrecio()/6}</option>
+               <option value={1}>1 x $ {codigo.booleano==="true" ? (-totalPrecio()*0.15+totalPrecio()):totalPrecio()}</option>
+               <option value={3}>3 x $ {codigo.booleano==="true" ? (-totalPrecio()*0.15+totalPrecio())/3:totalPrecio()/3}</option>
+               <option value={6}>6 x $ {codigo.booleano==="true" ? (-totalPrecio()*0.15+totalPrecio())/6:totalPrecio()/6}</option>
            </select>
         </div>
 

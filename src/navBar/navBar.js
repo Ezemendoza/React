@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 import { useContext } from 'react';
 import { CartContext } from '../CartContext/CartContext';
 import { Perfil } from './perfil';
-import { Nav, Navbar, NavDropdown } from "react-bootstrap";
+import { Nav, Navbar } from "react-bootstrap";
 const Menu = () => {
     const{cart} = useContext(CartContext)
 

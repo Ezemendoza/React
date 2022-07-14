@@ -18,7 +18,7 @@ const Pagos =() =>{
   
      
         if(
-          nombreEntrega.valido== "true" &&
+          nombreEntrega.valido=== "true" &&
           apellidoEntrega.valido === 'true' &&
           calleEntrega.valido === 'true' &&
           cpEntrega.valido === 'true' &&

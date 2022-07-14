@@ -3,10 +3,10 @@ import { CartContext } from "../CartContext/CartContext"
 import { UserContext } from "../UserContext/UserContext"
 import "./CodigoDescuento.css"
 
-const CodigoDescuento= ({}) => {
+const CodigoDescuento= () => {
   
     const{codigo, setCodigo} = useContext(UserContext)
-    const {totalDescuento, setTotalDescuento,totalPrecio}=useContext(CartContext)
+    const { setTotalDescuento,totalPrecio}=useContext(CartContext)
     const onChange = (e) => {
         
 		setCodigo({campo: e.target.value});
@@ -14,7 +14,7 @@ const CodigoDescuento= ({}) => {
 
     const submit = (e)=>{
       
-      if(codigo.campo=="365"){
+      if(codigo.campo==="365"){
         setCodigo({valido:"Cupon procesado exitosamente", booleano:"true"})
         setTotalDescuento(totalPrecio*0.15)
       }

@@ -10,7 +10,7 @@ import "./Login.css"
 
 
 const Login = () => {
-    const{registrado,auth,setRegistrado,email, password, expresiones,cambiarEmail, cambiarPassword} = useContext(UserContext)
+    const{auth,setRegistrado,email, password, expresiones,cambiarEmail, cambiarPassword} = useContext(UserContext)
     const [errores, setErrores] = useState(false)
     const entrar =(e,email, password)=>{
      

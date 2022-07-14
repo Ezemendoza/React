@@ -28,7 +28,7 @@ export const ItemDetailContainer = () => {
             .finally(() => {
                 setLoading(false)
             })
-    }, [])
+    }, [itemId])
 
     return (
         <section className="container my-5 row">

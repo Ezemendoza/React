@@ -2,7 +2,6 @@
 import { Routes, Route, Navigate } from 'react-router-dom'
 import Login from '../Login/Login'
 import { User } from '../User/User'
-import {Recuperarcontrasena} from '../User/RecuperarContrasena'
 
 
 const RoutePublico = () => {

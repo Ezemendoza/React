@@ -11,11 +11,11 @@ export const Checkout =()=>{
 
     const {cart, setCart, totalPrecio,orderId,cuota} =  useContext(CartContext)
 
-    const{codigo,expresiones, nombreEntrega, apellidoEntrega,calleEntrega, departamentoEntrega,cpEntrega, localidadEntrega, provinciaEntrega, telefono,titularTarjeta,} = useContext(UserContext)
+    const{codigo, nombreEntrega, apellidoEntrega,calleEntrega, cpEntrega, localidadEntrega, provinciaEntrega} = useContext(UserContext)
 
 const borrar = ()=>{
     setCart((null))
-    console.log(cart)
+
 }
    
     
@@ -30,7 +30,7 @@ const borrar = ()=>{
                <p className="texto-boton-checkout">Su orden de compra es: <strong>{orderId}</strong></p>
                <p className="texto-boton-checkout">El pedido sera entregado en <strong>{calleEntrega.campo}</strong> <strong>{cpEntrega.campo}</strong> en la localidad de <strong>{localidadEntrega.campo}</strong> en la provincia de <strong>{provinciaEntrega.campo} </strong> a nombre de <strong>{nombreEntrega.campo} {apellidoEntrega.campo}</strong></p>
               <p className="texto-boton-checkout">El total de la compra fue de  $ <strong>{codigo.booleano=="true" ? -totalPrecio()*0.15+totalPrecio():totalPrecio()}</strong> en <strong>{cuota.value}</strong> cuotas</p>
-              <Link to={"/"}><button className="boton-compra mt-4" >Seguir comprando</button></Link>
+              <Link to={"/"} onClick={borrar} ><button className="boton-compra mt-4" onClick={borrar} >Seguir comprando</button></Link>
               </div>
             
 
