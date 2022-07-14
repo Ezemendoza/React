@@ -45,7 +45,7 @@ const GaleriaItem = ({item}) => {
                  
                   <ol className="breadcrumb">
                     <li className="breadcrumb-item"><Link to={"/"}>Inicio</Link></li>
-                    <li className="breadcrumb-item"> {item.categoria== "tiempo libre" ? <Link to={"/item/tiempolibre"}>{item.categoria}</Link>:<Link to={`/item/${item.categoria}`}>{item.categoria}</Link>}</li>
+                    <li className="breadcrumb-item"> <Link to={`/categoria/${item.categoria}`}>{item.categoria}</Link></li>
                     <li className="breadcrumb-item active" aria-current="page">{item.nombre}</li>
                   </ol>
   
