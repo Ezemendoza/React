@@ -1,4 +1,8 @@
-.titulo-producto{margin-top: 0%;}
+.titulo-producto{margin-top: 0%;
+display: flex;
+flex-direction: row;
+justify-content: center;
+width: 60%;}
 .card-item{width: 80%;}
 
 .item-tarjeta{color: green;
