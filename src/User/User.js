@@ -1,11 +1,13 @@
 import { Boton, ContenedorTerminos, Formulario,  Label} from "./Elementos";
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { UserContext } from "../UserContext/UserContext";
 import "./User.css"
 import ComponenteInput from "./Input";
 
 export const User = () => {
     const{handlerCambios, registrarUsuario, usuario,cambiarUsuario, nombre,cambiarNombre, nacimiento,cambiarNacimiento, email,cambiarEmail, password,cambiarPassword,cambiarPassword2,password2, cambiarTerminos,terminos,cambiarFormularioValido, expresiones} = useContext(UserContext)
+
+    const [mostrar, setMostrar] = useState(false)
 
     const validarPassword = () =>{
       if(password2.campo !== password.campo){
@@ -15,6 +17,7 @@ export const User = () => {
 
     const onChangeTerminos = (e) => {
       cambiarTerminos(e.target.checked)
+      setMostrar(e.target.checked)
     }
     const submit = (e)=>{
       e.preventDefault()
@@ -69,14 +72,18 @@ export const User = () => {
                   <ComponenteInput
               estado={password}
               cambiarEstado={cambiarPassword}
-              tipo="password"
+              tipo={mostrar ? "text":"password"}
               label="Contraseña"
               placeholder="Contraseña"
               name="password"
               leyendaError="La contraseña tiene que tener minimo 6 digitos"
               expresionRegular={expresiones.password}
 					      />
-              
+                <Label> 
+                  <input type="checkbox" name="terminos" id="terminos"  checked={mostrar} onChange={onChangeTerminos} />
+                  Mostrar Contraseña
+                </Label>
+                
               <ComponenteInput
               estado={password2}
               cambiarEstado={cambiarPassword2}
@@ -107,9 +114,10 @@ export const User = () => {
               name="nacimiento"
               leyendaError="Las contraseñas no coinciden"
               expresionRegular={expresiones.password}
+              
 					      />
 
-
+              
               <ContenedorTerminos>
                 <Label> 
                   <input type="checkbox" name="terminos" id="terminos" checked={terminos} onChange={onChangeTerminos} />

@@ -3,7 +3,7 @@ import { AuthErrorCodes, signInWithEmailAndPassword } from "firebase/auth";
 import React, { useContext } from "react";
 import { useState } from "react";
 import { Link } from 'react-router-dom';
-import { Boton, Formulario, Enlace} from "../User/Elementos";
+import { Boton, Formulario, Enlace, Label} from "../User/Elementos";
 import ComponenteInput from "../User/Input";
 import { UserContext } from "../UserContext/UserContext";
 import "./Login.css"
@@ -12,6 +12,11 @@ import "./Login.css"
 const Login = () => {
     const{auth,setRegistrado,email, password, expresiones,cambiarEmail, cambiarPassword} = useContext(UserContext)
     const [errores, setErrores] = useState(false)
+    const [mostrar, setMostrar] = useState(false)
+    const onChangeTerminos = (e) => {
+     
+      setMostrar(e.target.checked)
+    }
     const entrar =(e,email, password)=>{
      
       e.preventDefault()
@@ -71,14 +76,18 @@ const Login = () => {
               <ComponenteInput
               estado={password}
               cambiarEstado={cambiarPassword}
-              tipo="password"
+              tipo={mostrar ? "text":"password"}
               label="Password"
               placeholder="Password"
               name="password"
 
               expresionRegular={expresiones.password}
 					      />
-
+               <Label> 
+                  <input type="checkbox" name="terminos" id="terminos"  checked={mostrar} onChange={onChangeTerminos} />
+                  Mostrar Contraseña
+                </Label>
+                
             {errores && <div className="text-danger">{errores}</div> }
             <br/>
         <Boton onClick={(e)=>entrar(e, email.campo, password.campo)}> Iniciar Sesion
