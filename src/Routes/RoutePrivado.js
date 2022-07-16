@@ -23,10 +23,10 @@ const RoutePrivado = () => {
                             <Route path='*' element={ <Navigate to="/"/>}/>
                             <Route path='/categoria/:categoriaId' element={ <ItemListContainer/>}/>          
                             <Route path='/item/:itemId' element={<ItemDetailContainer/>} />  
-                            <Route path='/recuperarContrasena' element={<Recuperarcontrasena/>}/>
                             <Route path="/pagos" element={<Pagos/>}/>
                             <Route path="/tarjeta" element={<Tarjeta/>}/>
                             <Route path="/miscompras" element={<Compras/>}/>
+                            <Route path='/perfil' element={<Recuperarcontrasena/>}/>
                             </Routes>
                 </>
                    

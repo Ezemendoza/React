@@ -29,8 +29,10 @@ const cerrar = ()=>{
                     </Dropdown.Toggle>
 
                     <Dropdown.Menu>
-                      <Link to={"/miscompras"}> <button className='dropdown-item'>Mis compras </button></Link>
+                    <Link to={"/perfil"}><button className='dropdown-item'>Mi Perfil</button></Link>
+                      <Link to={"/miscompras"}> <button className='dropdown-item'>Mis Compras </button></Link>
                       <button onClick={ ()=> cerrar(auth)} className="dropdown-item"> Cerrar Sesion</button>
+
                     </Dropdown.Menu>
                   </Dropdown>
 
